@@ -12,9 +12,7 @@ import Foundation
 
 extension TimeInterval {
 	
-	static var clockTick: TimeInterval {
-		return 1.0 / 60.0
-	}
+	static var clockTick: TimeInterval = { 1.0 / 60.0 }()
 }
 
 // MARK: - Type -
@@ -35,7 +33,7 @@ open class SmartTimer : NSObject {
 		case end
 	}
 	
-	public typealias UpdateHandler = (TimeInterval, Event) -> Void
+	public typealias UpdateHandler = (SmartTimer, Event) -> Void
 	
 // MARK: - Properties
 	
@@ -52,7 +50,7 @@ open class SmartTimer : NSObject {
 				runTimer(.resume)
 			case (.running, .paused):
 				stopTimer(.pause)
-			case (_, .finished):
+			case (.running, .finished), (.paused, .finished):
 				stopTimer(.end)
 			default:
 				break
@@ -79,22 +77,23 @@ open class SmartTimer : NSObject {
 							 selector: #selector(updateTimer),
 							 userInfo: nil,
 							 repeats: true)
+		
 		RunLoop.current.add(newTimer, forMode: .common)
 		
 		timer?.invalidate()
 		timer = newTimer
-		handler(currentTime, event)
+		handler(self, event)
 	}
 	
 	private func stopTimer(_ event: SmartTimer.Event) {
 		timer?.invalidate()
 		timer = nil
-		handler(currentTime, event)
+		handler(self, event)
 	}
 	
 	@objc private func updateTimer() {
 		currentTime += .clockTick
-		handler(currentTime, .update)
+		handler(self, .update)
 		
 		if currentTime >= totalTime {
 			state = .finished

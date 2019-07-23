@@ -11,19 +11,6 @@ import XCTest
 
 // MARK: - Definitions -
 
-typealias StatusCount = [SmartTimer.Event : Int]
-
-extension Dictionary where Key == SmartTimer.Event, Value == Int {
-	
-	static var zero: StatusCount {
-		return [.start : 0, .pause : 0, .resume : 0, .end : 0]
-	}
-	
-	mutating func addOne(to status: Key) {
-		self[status] = (self[status] ?? 0) + 1
-	}
-}
-
 // MARK: - Type -
 
 class TimerTests : XCTestCase {
@@ -35,33 +22,33 @@ class TimerTests : XCTestCase {
 // MARK: - Protected Methods
 
 // MARK: - Exposed Methods
-
-  func test_SmartTimer_WithUpdatingHandler_ShouldBegingWithStartStatus() {
-	let expect = expectation(description: "\(#function)")
-	var sequence = [SmartTimer.Event]()
 	
-	_ = SmartTimer(total: 1.0) { (_, status) in
-		sequence.append(status)
+	func test_SmartTimer_WithUpdatingHandler_ShouldBegingWithStartStatus() {
+		let expect = expectation(description: "\(#function)")
+		var sequence = [SmartTimer.Event]()
 		
-		if status == .end {
-			XCTAssertEqual(sequence.first!, .start)
-			XCTAssertEqual(sequence.dropFirst().first!, .update)
-			XCTAssertEqual(sequence.last!, .end)
-			expect.fulfill()
+		_ = SmartTimer(total: 1.0) { (_, event) in
+			sequence.append(event)
+			
+			if event == .end {
+				XCTAssertEqual(sequence.first!, .start)
+				XCTAssertEqual(sequence.dropFirst().first!, .update)
+				XCTAssertEqual(sequence.last!, .end)
+				expect.fulfill()
+			}
 		}
+		
+		waitForExpectations(timeout: 1.5, handler: nil)
 	}
-	
-	waitForExpectations(timeout: 1.5, handler: nil)
-  }
 	
 	func test_SmartTimer_WithUpdatingHandler_ShouldHaveOneStartOneEndSeveralUpdates() {
 		let expect = expectation(description: "\(#function)")
-		var track = StatusCount.zero
+		var track = SmartTimerEventCount.zero
 		
-		_ = SmartTimer(total: 1.0) { (_, status) in
-			track.addOne(to: status)
+		_ = SmartTimer(total: 1.0) { (_, event) in
+			track.addOne(to: event)
 			
-			if status == .end {
+			if event == .end {
 				XCTAssertEqual(track[.start], 1)
 				XCTAssertGreaterThan(track[.update]!, 1, "Clock tick should be faster than 1s")
 				XCTAssertEqual(track[.end], 1)
@@ -74,12 +61,12 @@ class TimerTests : XCTestCase {
 	
 	func test_SmartTimer_WithPauseAndResume_ShouldHaveOneStartOneEndSeveralUpdates() {
 		let expect = expectation(description: "\(#function)")
-		var track = StatusCount.zero
+		var track = SmartTimerEventCount.zero
 		
-		let timer = SmartTimer(total: 1.0) { (_, status) in
-			track.addOne(to: status)
+		let timer = SmartTimer(total: 1.0) { (_, event) in
+			track.addOne(to: event)
 			
-			if status == .end {
+			if event == .end {
 				XCTAssertEqual(track[.start], 1)
 				XCTAssertGreaterThan(track[.update]!, 1, "Clock tick should be faster than 1s")
 				XCTAssertEqual(track[.pause], 1)
@@ -102,12 +89,12 @@ class TimerTests : XCTestCase {
 	
 	func test_SmartTimer_WithRedundantPauseAndResume_ShouldHaveNoEffectOverTheNormalBehavior() {
 		let expect = expectation(description: "\(#function)")
-		var track = StatusCount.zero
+		var track = SmartTimerEventCount.zero
 		
-		let timer = SmartTimer(total: 1.0) { (_, status) in
-			track.addOne(to: status)
+		let timer = SmartTimer(total: 1.0) { (_, event) in
+			track.addOne(to: event)
 			
-			if status == .end {
+			if event == .end {
 				XCTAssertEqual(track[.pause], 2)
 				XCTAssertEqual(track[.resume], 2)
 				expect.fulfill()
@@ -121,6 +108,8 @@ class TimerTests : XCTestCase {
 		timer.state = .running
 		timer.state = .paused
 		timer.state = .running
+		timer.state = .finished
+		timer.state = .finished
 		
 		waitForExpectations(timeout: 1.5, handler: nil)
 	}
@@ -128,10 +117,10 @@ class TimerTests : XCTestCase {
 	func test_SmartTimer_With3SecondsCount_ShouldWaitFor3Seconds() {
 		let expect = expectation(description: "\(#function)")
 		let time = CACurrentMediaTime()
+		
+		_ = SmartTimer(total: 3.0) { (_, event) in
 			
-		_ = SmartTimer(total: 3.0) { (_, status) in
-			
-			if status == .end {
+			if event == .end {
 				XCTAssertGreaterThan(CACurrentMediaTime() - time, 3.0)
 				expect.fulfill()
 			}
