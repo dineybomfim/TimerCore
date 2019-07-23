@@ -1,0 +1,6 @@
+framework module TimerCore {
+  umbrella header "TimerCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

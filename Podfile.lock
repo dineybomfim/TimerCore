@@ -1,0 +1,16 @@
+PODS:
+  - TimerCore (1.0.0)
+
+DEPENDENCIES:
+  - TimerCore (from `./`)
+
+EXTERNAL SOURCES:
+  TimerCore:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  TimerCore: cbe30811782cf797cae293ee821efcec19945aa9
+
+PODFILE CHECKSUM: 7b96ba33b297fc3c289dd66c8bb93b562a4c5b98
+
+COCOAPODS: 1.7.1

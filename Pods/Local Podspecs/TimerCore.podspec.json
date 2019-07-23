@@ -1,0 +1,33 @@
+{
+  "name": "TimerCore",
+  "version": "1.0.0",
+  "summary": "Micro Feature",
+  "description": "TimerCore is resposible for ...",
+  "homepage": "http://db-in",
+  "documentation_url": "https://db-in.github.io/TimerCore/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "db-in",
+  "source": {
+    "git": "https://github.com/dineybomfim/TimmerCore.git",
+    "tag": "1.0.0",
+    "submodules": true
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "public_header_files": "TimerCore/**/*.h",
+  "source_files": "TimerCore/**/*.{h,m,swift}",
+  "exclude_files": "TimerCore/**/Info.plist",
+  "ios": {
+    "frameworks": "Foundation"
+  },
+  "swift_version": "5.0"
+}
