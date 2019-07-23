@@ -86,8 +86,8 @@
 		60BC713022E587940036BA7A /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = codecov.yml; path = ../codecov.yml; sourceTree = "<group>"; };
 		60BC713122E587940036BA7A /* .codebeatignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .codebeatignore; path = ../.codebeatignore; sourceTree = "<group>"; };
 		60BC713222E587940036BA7A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		60BC713322E587940036BA7A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
-		60BC713422E587940036BA7A /* TimerCore.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TimerCore.podspec; sourceTree = SOURCE_ROOT; };
+		60BC713322E587940036BA7A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		60BC713422E587940036BA7A /* TimerCore.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TimerCore.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		60BC713522E587940036BA7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		60BC713C22E587950036BA7A /* TimerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BC714322E587950036BA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

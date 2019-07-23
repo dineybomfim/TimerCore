@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author = 'db-in'
   s.source = { :git => "https://github.com/dineybomfim/TimmerCore.git", :tag => s.version, :submodules => true }
-  s.swift_version = '5.0'
+  s.swift_version = '4.2'
 
   s.requires_arc = true
   s.ios.deployment_target = '10.0'
