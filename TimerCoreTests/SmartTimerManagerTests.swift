@@ -11,6 +11,13 @@ import XCTest
 
 // MARK: - Definitions -
 
+extension ClosedRange where Bound == Double {
+	
+	func randomElements(_ n: Int) -> [Bound] {
+		return (0..<n).map { _ in .random(in: self) }
+	}
+}
+
 // MARK: - Type -
 
 class SmartTimerManagerTests : XCTestCase {
@@ -70,6 +77,30 @@ class SmartTimerManagerTests : XCTestCase {
 		}
 		
 		waitForExpectations(timeout: 1.0, handler: nil)
+	}
+	
+	func test_SmartTimerManager_WithMultipleTriggers_ShouldAllRunInParallel() {
+		let expect = expectation(description: "\(#function)")
+		let maxTime = 5.0
+		let timmings = (1.0...maxTime).randomElements(10)
+		let time = CACurrentMediaTime()
+		let group = DispatchGroup()
+		
+		timmings.forEach { value in
+			group.enter()
+			SmartTimerManager.shared.triggerTimer(with: "\(value)", totalTime: value) { (_, event) in
+				if event == .end {
+					XCTAssertGreaterThan(CACurrentMediaTime() - time, value)
+					group.leave()
+				}
+			}
+		}
+		
+		group.notify(queue: DispatchQueue.main) {
+			expect.fulfill()
+		}
+		
+		waitForExpectations(timeout: maxTime + 1.0, handler: nil)
 	}
 
 // MARK: - Overridden Methods
