@@ -1,9 +1,9 @@
 # TimerCore
 
-[![Build Status](https://travis-ci.org/db-in/TimerCore.svg?branch=master)](https://travis-ci.org/db-in/TimerCore)
-[![codecov](https://codecov.io/gh/db-in/TimerCore/branch/master/graph/badge.svg)](https://codecov.io/gh/db-in/TimerCore)
+[![Build Status](https://travis-ci.org/dineybomfim/TimerCore.svg?branch=master)](https://travis-ci.org/db-in/TimerCore)
+[![codecov](https://codecov.io/gh/dineybomfim/TimerCore/branch/master/graph/badge.svg)](https://codecov.io/gh/db-in/TimerCore)
 [![codebeat badge](https://codebeat.co/badges/5563135f-7e49-4e66-aa44-b4f6fbb9b331)](https://codebeat.co/projects/github-com-db-in-TimerCore-master)
-![Version](https://img.shields.io/badge/swift-4.1-red.svg)
+![Version](https://img.shields.io/badge/swift-4.2-red.svg)
 [![Platform](https://img.shields.io/cocoapods/p/TimerCore.svg?style=flat)](https://db-in.github.io/TimerCore)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TimerCore.svg)](https://img.shields.io/cocoapods/v/TimerCore.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
