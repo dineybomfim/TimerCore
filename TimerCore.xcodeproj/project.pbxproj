@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -132,7 +132,6 @@
 				DAC1FC42F02C73C5B3208D18 /* Pods-ModuleIntegrationTests.debug.xcconfig */,
 				1E401428C84850C1B1D44319 /* Pods-ModuleIntegrationTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -161,20 +160,20 @@
 		60BC712722E587940036BA7A /* TimerCore */ = {
 			isa = PBXGroup;
 			children = (
-				60BC716422E5889B0036BA7A /* Sources */,
+				60BC713122E587940036BA7A /* .codebeatignore */,
 				60BC712822E587940036BA7A /* .gitignore */,
-				60BC712922E587940036BA7A /* Info.plist */,
-				60BC712A22E587940036BA7A /* TimerCore.h */,
-				60BC712C22E587940036BA7A /* Package.swift */,
 				60BC712D22E587940036BA7A /* .swiftlint.yml */,
-				60BC712E22E587940036BA7A /* TimerCore.playground */,
 				60BC712F22E587940036BA7A /* .travis.yml */,
 				60BC713022E587940036BA7A /* codecov.yml */,
-				60BC713122E587940036BA7A /* .codebeatignore */,
+				60BC712922E587940036BA7A /* Info.plist */,
 				60BC713222E587940036BA7A /* LICENSE */,
+				60BC712C22E587940036BA7A /* Package.swift */,
 				60BC713322E587940036BA7A /* Podfile */,
-				60BC713422E587940036BA7A /* TimerCore.podspec */,
 				60BC713522E587940036BA7A /* README.md */,
+				60BC716422E5889B0036BA7A /* Sources */,
+				60BC712A22E587940036BA7A /* TimerCore.h */,
+				60BC712E22E587940036BA7A /* TimerCore.playground */,
+				60BC713422E587940036BA7A /* TimerCore.podspec */,
 			);
 			path = TimerCore;
 			sourceTree = "<group>";
