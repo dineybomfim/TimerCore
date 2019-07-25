@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  TimerCore: cbe30811782cf797cae293ee821efcec19945aa9
+  TimerCore: 188c398d0ab7f89cba5dc7af36969bf019f557a3
 
 PODFILE CHECKSUM: 7b96ba33b297fc3c289dd66c8bb93b562a4c5b98
 

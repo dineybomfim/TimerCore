@@ -33,15 +33,15 @@
 
 /* Begin PBXBuildFile section */
 		31FEA49C0878BF2C72C1BA46 /* Pods_ModuleIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769ABAB5E2933699DEF2EFA3 /* Pods_ModuleIntegrationTests.framework */; };
-		607AADF922E5D16E0010AEC6 /* SmartTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607AADF822E5D16E0010AEC6 /* SmartTimerTests.swift */; };
+		607AADF922E5D16E0010AEC6 /* TimerCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607AADF822E5D16E0010AEC6 /* TimerCoreTests.swift */; };
 		607AADFB22E5D1880010AEC6 /* ModuleIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607AADFA22E5D1880010AEC6 /* ModuleIntegrationTests.swift */; };
-		607AADFD22E6CBE30010AEC6 /* SmartTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607AADFC22E6CBE30010AEC6 /* SmartTimerManager.swift */; };
-		607E034C22E6E97D003ACB0F /* SmartTimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E034B22E6E97D003ACB0F /* SmartTimerManagerTests.swift */; };
-		607E034E22E6EAE0003ACB0F /* SmartTimerEventCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E034D22E6EAE0003ACB0F /* SmartTimerEventCount.swift */; };
+		607AADFD22E6CBE30010AEC6 /* TimerCoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607AADFC22E6CBE30010AEC6 /* TimerCoreFactory.swift */; };
+		607E034C22E6E97D003ACB0F /* TimerCoreFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E034B22E6E97D003ACB0F /* TimerCoreFactoryTests.swift */; };
+		607E034E22E6EAE0003ACB0F /* TimerCoreEventCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E034D22E6EAE0003ACB0F /* TimerCoreEventCount.swift */; };
 		60BC712B22E587940036BA7A /* TimerCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BC712A22E587940036BA7A /* TimerCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60BC713D22E587950036BA7A /* TimerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BC712122E587940036BA7A /* TimerCore.framework */; };
 		60BC714922E587950036BA7A /* TimerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BC712122E587940036BA7A /* TimerCore.framework */; };
-		60BC716622E588A50036BA7A /* SmartTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BC716522E588A50036BA7A /* SmartTimer.swift */; };
+		60BC716622E588A50036BA7A /* TimerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BC716522E588A50036BA7A /* TimerCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +70,11 @@
 
 /* Begin PBXFileReference section */
 		1E401428C84850C1B1D44319 /* Pods-ModuleIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModuleIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-ModuleIntegrationTests/Pods-ModuleIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
-		607AADF822E5D16E0010AEC6 /* SmartTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTimerTests.swift; sourceTree = "<group>"; };
+		607AADF822E5D16E0010AEC6 /* TimerCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoreTests.swift; sourceTree = "<group>"; };
 		607AADFA22E5D1880010AEC6 /* ModuleIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleIntegrationTests.swift; sourceTree = "<group>"; };
-		607AADFC22E6CBE30010AEC6 /* SmartTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTimerManager.swift; sourceTree = "<group>"; };
-		607E034B22E6E97D003ACB0F /* SmartTimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTimerManagerTests.swift; sourceTree = "<group>"; };
-		607E034D22E6EAE0003ACB0F /* SmartTimerEventCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTimerEventCount.swift; sourceTree = "<group>"; };
+		607AADFC22E6CBE30010AEC6 /* TimerCoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoreFactory.swift; sourceTree = "<group>"; };
+		607E034B22E6E97D003ACB0F /* TimerCoreFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoreFactoryTests.swift; sourceTree = "<group>"; };
+		607E034D22E6EAE0003ACB0F /* TimerCoreEventCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoreEventCount.swift; sourceTree = "<group>"; };
 		60BC712122E587940036BA7A /* TimerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TimerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BC712822E587940036BA7A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		60BC712922E587940036BA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		60BC714322E587950036BA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60BC714822E587950036BA7A /* ModuleIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModuleIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BC714F22E587950036BA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60BC716522E588A50036BA7A /* SmartTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTimer.swift; sourceTree = "<group>"; };
+		60BC716522E588A50036BA7A /* TimerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCore.swift; sourceTree = "<group>"; };
 		769ABAB5E2933699DEF2EFA3 /* Pods_ModuleIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModuleIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC1FC42F02C73C5B3208D18 /* Pods-ModuleIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModuleIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-ModuleIntegrationTests/Pods-ModuleIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,9 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				60BC714322E587950036BA7A /* Info.plist */,
-				607AADF822E5D16E0010AEC6 /* SmartTimerTests.swift */,
-				607E034B22E6E97D003ACB0F /* SmartTimerManagerTests.swift */,
-				607E034D22E6EAE0003ACB0F /* SmartTimerEventCount.swift */,
+				607AADF822E5D16E0010AEC6 /* TimerCoreTests.swift */,
+				607E034B22E6E97D003ACB0F /* TimerCoreFactoryTests.swift */,
+				607E034D22E6EAE0003ACB0F /* TimerCoreEventCount.swift */,
 			);
 			path = TimerCoreTests;
 			sourceTree = "<group>";
@@ -201,8 +201,8 @@
 		60BC716422E5889B0036BA7A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				60BC716522E588A50036BA7A /* SmartTimer.swift */,
-				607AADFC22E6CBE30010AEC6 /* SmartTimerManager.swift */,
+				60BC716522E588A50036BA7A /* TimerCore.swift */,
+				607AADFC22E6CBE30010AEC6 /* TimerCoreFactory.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -443,8 +443,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60BC716622E588A50036BA7A /* SmartTimer.swift in Sources */,
-				607AADFD22E6CBE30010AEC6 /* SmartTimerManager.swift in Sources */,
+				60BC716622E588A50036BA7A /* TimerCore.swift in Sources */,
+				607AADFD22E6CBE30010AEC6 /* TimerCoreFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,9 +452,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607AADF922E5D16E0010AEC6 /* SmartTimerTests.swift in Sources */,
-				607E034E22E6EAE0003ACB0F /* SmartTimerEventCount.swift in Sources */,
-				607E034C22E6E97D003ACB0F /* SmartTimerManagerTests.swift in Sources */,
+				607AADF922E5D16E0010AEC6 /* TimerCoreTests.swift in Sources */,
+				607E034E22E6EAE0003ACB0F /* TimerCoreEventCount.swift in Sources */,
+				607E034C22E6E97D003ACB0F /* TimerCoreFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

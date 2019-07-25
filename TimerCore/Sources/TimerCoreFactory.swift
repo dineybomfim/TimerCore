@@ -1,5 +1,5 @@
 /*
- *	SmartTimerManager.swift
+ *	TimerCoreFactory.swift
  *	TimerCore
  *
  *	Created by Diney Bomfim on 7/23/19.
@@ -12,13 +12,13 @@ import Foundation
 
 // MARK: - Type -
 
-public class SmartTimerManager {
+public class TimerCoreFactory {
 
 // MARK: - Properties
 	
-	private var timers: [String : SmartTimer] = [:]
+	private var timers: [String : TimerCore] = [:]
 	
-	public static var shared = SmartTimerManager()
+	public static var shared = TimerCoreFactory()
 
 // MARK: - Constructors
 
@@ -26,16 +26,16 @@ public class SmartTimerManager {
 	
 // MARK: - Exposed Methods
 	
-	public func timer(with identifier: String) -> SmartTimer? {
+	public func timer(with identifier: String) -> TimerCore? {
 		return timers[identifier]
 	}
 	
 	public func triggerTimer(with identifier: String,
 							 totalTime: TimeInterval,
-							 handler: @escaping SmartTimer.UpdateHandler) {
+							 handler: @escaping TimerCore.UpdateHandler) {
 		timers[identifier]?.state = .finished
 		
-		let newTimer = SmartTimer(total: totalTime) { timer, state in
+		let newTimer = TimerCore(total: totalTime) { timer, state in
 			handler(timer, state)
 			
 			if state == .end {

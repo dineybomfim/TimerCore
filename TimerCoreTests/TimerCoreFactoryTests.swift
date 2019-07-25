@@ -1,5 +1,5 @@
 /*
- *	SmartTimerManagerTests.swift
+ *	TimerCoreFactoryTests.swift
  *	TimerCore
  *
  *	Created by Diney Bomfim on 7/23/19.
@@ -20,7 +20,7 @@ extension ClosedRange where Bound == Double {
 
 // MARK: - Type -
 
-class SmartTimerManagerTests : XCTestCase {
+class TimerCoreFactoryTests : XCTestCase {
 
 // MARK: - Properties
 
@@ -30,11 +30,11 @@ class SmartTimerManagerTests : XCTestCase {
 
 // MARK: - Exposed Methods
 	
-	func test_SmartTimerManager_WithTriggerAction_ShouldInitializeATimer() {
+	func test_TimerCoreFactory_WithTriggerAction_ShouldInitializeATimer() {
 		let expect = expectation(description: "\(#function)")
-		var track = SmartTimerEventCount.zero
+		var track = TimerCoreEventCount.zero
 		
-		SmartTimerManager.shared.triggerTimer(with: "com.test", totalTime: 0.5) { (timer, event) in
+		TimerCoreFactory.shared.triggerTimer(with: "com.test", totalTime: 0.5) { (timer, event) in
 			track.addOne(to: event)
 			
 			if event == .end {
@@ -47,9 +47,9 @@ class SmartTimerManagerTests : XCTestCase {
 		waitForExpectations(timeout: 1.0, handler: nil)
 	}
 	
-	func test_SmartTimerManager_WithTriggerActionAndTimerFunction_ShouldRetrieveTheSameTimer() {
+	func test_TimerCoreFactory_WithTriggerActionAndTimerFunction_ShouldRetrieveTheSameTimer() {
 		let expect = expectation(description: "\(#function)")
-		let shared = SmartTimerManager.shared
+		let shared = TimerCoreFactory.shared
 		
 		shared.triggerTimer(with: "com.test", totalTime: 0.5) { (timer, event) in
 			if event == .end {
@@ -61,9 +61,9 @@ class SmartTimerManagerTests : XCTestCase {
 		waitForExpectations(timeout: 1.0, handler: nil)
 	}
 	
-	func test_SmartTimerManager_WithTriggerActionFinishes_ShouldAutomaticallyStripTimer() {
+	func test_TimerCoreFactory_WithTriggerActionFinishes_ShouldAutomaticallyStripTimer() {
 		let expect = expectation(description: "\(#function)")
-		let shared = SmartTimerManager.shared
+		let shared = TimerCoreFactory.shared
 		
 		shared.triggerTimer(with: "com.test", totalTime: 0.0) { (timer, event) in
 			if event == .end {
@@ -79,7 +79,7 @@ class SmartTimerManagerTests : XCTestCase {
 		waitForExpectations(timeout: 1.0, handler: nil)
 	}
 	
-	func test_SmartTimerManager_WithMultipleTriggers_ShouldAllRunInParallel() {
+	func test_TimerCoreFactory_WithMultipleTriggers_ShouldAllRunInParallel() {
 		let expect = expectation(description: "\(#function)")
 		let maxTime = 5.0
 		let timmings = (1.0...maxTime).randomElements(10)
@@ -88,7 +88,7 @@ class SmartTimerManagerTests : XCTestCase {
 		
 		timmings.forEach { value in
 			group.enter()
-			SmartTimerManager.shared.triggerTimer(with: "\(value)", totalTime: value) { (_, event) in
+			TimerCoreFactory.shared.triggerTimer(with: "\(value)", totalTime: value) { (_, event) in
 				if event == .end {
 					XCTAssertGreaterThan(CACurrentMediaTime() - time, value)
 					group.leave()

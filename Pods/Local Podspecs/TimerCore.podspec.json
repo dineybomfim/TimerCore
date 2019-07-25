@@ -15,7 +15,7 @@
     "tag": "1.0.0",
     "submodules": true
   },
-  "swift_versions": "5.0",
+  "swift_versions": "4.2",
   "requires_arc": true,
   "platforms": {
     "ios": "10.0",
@@ -29,5 +29,5 @@
   "ios": {
     "frameworks": "Foundation"
   },
-  "swift_version": "5.0"
+  "swift_version": "4.2"
 }

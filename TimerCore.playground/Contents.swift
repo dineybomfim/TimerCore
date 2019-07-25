@@ -17,7 +17,7 @@ extension TimeInterval {
 
 // MARK: - Type -
 
-open class SmartTimer : NSObject {
+open class TimerCore : NSObject {
 	
 	public enum State {
 		case running
@@ -106,7 +106,7 @@ open class SmartTimer : NSObject {
 	
 }
 
-let timer = SmartTimer(total: 10.0) { (current, status) in
+let timer = TimerCore(total: 10.0) { (current, status) in
 	switch status {
 	case .start, .end:
 		print("\(current) :: \(status)")

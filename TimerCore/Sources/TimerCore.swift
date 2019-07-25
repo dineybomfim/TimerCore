@@ -1,5 +1,5 @@
 /*
- *	SmartTimer.swift
+ *	TimerCore.swift
  *	TimerCore
  *
  *	Created by Diney Bomfim on 7/22/19.
@@ -17,7 +17,7 @@ extension TimeInterval {
 
 // MARK: - Type -
 
-open class SmartTimer : NSObject {
+open class TimerCore : NSObject {
 	
 	public enum State {
 		case running
@@ -33,14 +33,14 @@ open class SmartTimer : NSObject {
 		case end
 	}
 	
-	public typealias UpdateHandler = (SmartTimer, Event) -> Void
+	public typealias UpdateHandler = (TimerCore, Event) -> Void
 	
 // MARK: - Properties
 	
 	private var timer: Timer?
 	private let handler: UpdateHandler
 	
-	public private(set) var currentTime: TimeInterval = 0.0
+	public var currentTime: TimeInterval = 0.0
 	public var totalTime: TimeInterval
 	
 	public var state: State {
@@ -70,13 +70,9 @@ open class SmartTimer : NSObject {
 
 // MARK: - Protected Methods
 	
-	private func runTimer(_ event: SmartTimer.Event) {
+	private func runTimer(_ event: TimerCore.Event) {
 		
-		let newTimer = Timer(timeInterval: .clockTick,
-							 target: self,
-							 selector: #selector(updateTimer),
-							 userInfo: nil,
-							 repeats: true)
+		let newTimer = Timer(timeInterval: .clockTick, repeats: true, block: updateTimer)
 		
 		RunLoop.current.add(newTimer, forMode: .common)
 		
@@ -85,14 +81,14 @@ open class SmartTimer : NSObject {
 		handler(self, event)
 	}
 	
-	private func stopTimer(_ event: SmartTimer.Event) {
+	private func stopTimer(_ event: TimerCore.Event) {
 		timer?.invalidate()
 		timer = nil
 		handler(self, event)
 	}
 	
-	@objc private func updateTimer() {
-		currentTime += .clockTick
+	private func updateTimer(_ timer: Timer) {
+		currentTime += timer.timeInterval
 		handler(self, .update)
 		
 		if currentTime >= totalTime {

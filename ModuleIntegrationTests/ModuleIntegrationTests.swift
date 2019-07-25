@@ -7,6 +7,7 @@
  */
 
 import XCTest
+import TimerCore
 
 // MARK: - Definitions -
 

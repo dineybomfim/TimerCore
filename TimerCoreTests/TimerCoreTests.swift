@@ -23,11 +23,11 @@ class TimerTests : XCTestCase {
 
 // MARK: - Exposed Methods
 	
-	func test_SmartTimer_WithUpdatingHandler_ShouldBegingWithStartStatus() {
+	func test_TimerCore_WithUpdatingHandler_ShouldBegingWithStartStatus() {
 		let expect = expectation(description: "\(#function)")
-		var sequence = [SmartTimer.Event]()
+		var sequence = [TimerCore.Event]()
 		
-		_ = SmartTimer(total: 1.0) { (_, event) in
+		_ = TimerCore(total: 1.0) { (_, event) in
 			sequence.append(event)
 			
 			if event == .end {
@@ -41,11 +41,11 @@ class TimerTests : XCTestCase {
 		waitForExpectations(timeout: 1.5, handler: nil)
 	}
 	
-	func test_SmartTimer_WithUpdatingHandler_ShouldHaveOneStartOneEndSeveralUpdates() {
+	func test_TimerCore_WithUpdatingHandler_ShouldHaveOneStartOneEndSeveralUpdates() {
 		let expect = expectation(description: "\(#function)")
-		var track = SmartTimerEventCount.zero
+		var track = TimerCoreEventCount.zero
 		
-		_ = SmartTimer(total: 1.0) { (_, event) in
+		_ = TimerCore(total: 1.0) { (_, event) in
 			track.addOne(to: event)
 			
 			if event == .end {
@@ -59,11 +59,11 @@ class TimerTests : XCTestCase {
 		waitForExpectations(timeout: 1.5, handler: nil)
 	}
 	
-	func test_SmartTimer_WithPauseAndResume_ShouldHaveOneStartOneEndSeveralUpdates() {
+	func test_TimerCore_WithPauseAndResume_ShouldHaveOneStartOneEndSeveralUpdates() {
 		let expect = expectation(description: "\(#function)")
-		var track = SmartTimerEventCount.zero
+		var track = TimerCoreEventCount.zero
 		
-		let timer = SmartTimer(total: 1.0) { (_, event) in
+		let timer = TimerCore(total: 1.0) { (_, event) in
 			track.addOne(to: event)
 			
 			if event == .end {
@@ -87,11 +87,11 @@ class TimerTests : XCTestCase {
 		waitForExpectations(timeout: 1.5, handler: nil)
 	}
 	
-	func test_SmartTimer_WithRedundantPauseAndResume_ShouldHaveNoEffectOverTheNormalBehavior() {
+	func test_TimerCore_WithRedundantPauseAndResume_ShouldHaveNoEffectOverTheNormalBehavior() {
 		let expect = expectation(description: "\(#function)")
-		var track = SmartTimerEventCount.zero
+		var track = TimerCoreEventCount.zero
 		
-		let timer = SmartTimer(total: 1.0) { (_, event) in
+		let timer = TimerCore(total: 1.0) { (_, event) in
 			track.addOne(to: event)
 			
 			if event == .end {
@@ -114,11 +114,11 @@ class TimerTests : XCTestCase {
 		waitForExpectations(timeout: 1.5, handler: nil)
 	}
 	
-	func test_SmartTimer_With3SecondsCount_ShouldWaitFor3Seconds() {
+	func test_TimerCore_With3SecondsCount_ShouldWaitFor3Seconds() {
 		let expect = expectation(description: "\(#function)")
 		let time = CACurrentMediaTime()
 		
-		_ = SmartTimer(total: 3.0) { (_, event) in
+		_ = TimerCore(total: 3.0) { (_, event) in
 			
 			if event == .end {
 				XCTAssertGreaterThan(CACurrentMediaTime() - time, 3.0)
